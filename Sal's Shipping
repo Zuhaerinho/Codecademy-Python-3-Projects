@@ -1,0 +1,60 @@
+weight = 41.5
+# for weight = 4.8, Ground Shipping at $34.40
+# for weight = 41.5, Ground Shipping Premium at $125.00
+
+# Ground Shipping
+# Flat charge = $20
+
+# Price per pound = $1.50
+if weight <= 2:
+  ground_cost = 20.00 + 1.5*weight
+  r_ground_cost = round(ground_cost, 2)
+  print("Ground Shipping ($):", r_ground_cost)
+
+# Price per pound = $3.00
+elif weight > 2 and weight <=6:
+  ground_cost = 20.00 + 3*weight
+  r_ground_cost = round(ground_cost, 2)
+  print("Ground Shipping ($):", r_ground_cost)
+
+# Price per pound = $4.00
+elif weight > 6 and weight <=10:
+  ground_cost = 20.00 + 4*weight
+  r_ground_cost = round(ground_cost, 2)
+  print("Ground Shipping ($):", r_ground_cost)
+
+# Price per pound = $4.75
+else:
+  ground_cost = 20.00 + 4.75*weight
+  r_ground_cost = round(ground_cost, 2)
+  print("Ground Shipping ($):", r_ground_cost)
+
+# Ground Shipping Premium
+premium_cost = 125.00
+r_premium_cost = round(premium_cost, 2)
+print("Ground Shipping Premium ($):", premium_cost)
+
+# Drone Shipping
+# Price per pound = $4.50
+if weight <= 2:
+  drone_cost = 4.5*weight
+  r_drone_cost = round(drone_cost, 2)
+  print("Drone Shipping ($):", r_drone_cost)
+
+# Price per pound = $9.00
+elif weight > 2 and weight <=6:
+  drone_cost = 9*weight
+  r_drone_cost = round(drone_cost, 2)
+  print("Drone Shipping ($):", r_drone_cost)
+
+# Price per pound = $12.00
+elif weight > 6 and weight <=10:
+  drone_cost = 12*weight
+  r_drone_cost = round(drone_cost, 2)
+  print("Drone Shipping ($):", r_drone_cost)
+
+# Price per pound = $14.25
+else:
+  drone_cost = 14.25*weight
+  r_drone_cost = round(drone_cost, 2)
+  print("Drone Shipping ($):", r_drone_cost)
