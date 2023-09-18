@@ -7,34 +7,22 @@ last_week = [2, 3, 5, 8, 4, 4, 6, 2]
 total_price = 0
 
 for price in prices:
-  total_price = total_price + price
+  total_price += price
 
-average_price = total_price / len(prices)
-r_average_price = round(average_price, 2)
+average_price = (total_price)/len(prices)
+print('Average Haircut Price:', round(average_price, 2))
 
-print(str("Average Haircut Price: £") + str(r_average_price))
-
-new_prices = []
-for price in prices:
-  new_prices.append(price - 5)
+new_prices = [price-5 for price in prices]
 print(new_prices)
-
-# Or:
-# new_prices = [price - 5 for price in prices]
 
 total_revenue = 0
 
 for i in range(len(hairstyles)):
-  total_revenue = total_revenue + prices[i] * last_week[i]
+  total_revenue += prices[i]*last_week[i]
+print('Total Revenue:', round(total_revenue, 2))
 
-  # Or:
-  # total_revenue += prices[i] * last_week[i]
-
-print(str("Total Revenue: £") + str(total_revenue))
-
-average_daily_revenue = total_revenue / 7
-print(str("Average Daily Revenue: £") + str(average_daily_revenue))
+average_daily_revenue = total_revenue/7
+print('Average Daily Revenue:', round(average_daily_revenue, 2))
 
 cuts_under_30 = [hairstyles[i] for i in range(len(new_prices)) if new_prices[i] < 30]
-
 print(cuts_under_30)
