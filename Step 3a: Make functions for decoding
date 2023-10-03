@@ -1,0 +1,15 @@
+alphabet = 'abcdefghijklmnopqrstuvwxyz'
+message = 'jxu evviuj veh jxu iusedt cuiiqwu yi vekhjuud'
+offset = 10
+
+def caesar_decode(message, offset):
+  real_message = ''
+  for character in message:
+    if character in alphabet:
+      value = alphabet.find(character)
+      real_message += alphabet[(value + offset) % 26]
+    else:
+      real_message += character
+  return real_message
+
+print(caesar_decode(message, offset))
