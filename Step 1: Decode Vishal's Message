@@ -6,8 +6,8 @@ real_message = ''
 
 for character in message:
     if character in alphabet:
-        value = alphabet.find(character)
-        real_message += alphabet[(value + 10) % 26]
+      value = alphabet.find(character)
+      real_message += alphabet[(value + 10) % 26]
     else:
       real_message += character
 
