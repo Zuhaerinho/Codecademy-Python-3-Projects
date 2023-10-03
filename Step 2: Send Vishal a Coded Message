@@ -1,0 +1,13 @@
+alphabet = 'abcdefghijklmnopqrstuvwxyz'
+
+real_message = 'Hey Vishal, hope you are doing well!'
+message = ''
+
+for character in real_message:
+    if character in alphabet:
+      value = alphabet.find(character)
+      message += alphabet[(value - 10) % 26]
+    else:
+      message += character
+
+print(message)
