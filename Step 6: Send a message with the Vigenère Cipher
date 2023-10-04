@@ -3,31 +3,31 @@ message = "hey, thank you so much!"
 keyword = "roma"
 
 def vigenere_encode(message, keyword):
-  keyword_phrase = ""
-  keyword_index = 0
+
+  phrase_keyword = ''
+  index_keyword = 0
 
   for character in message:
-    if keyword_index >= len(keyword):
-      keyword_index = 0
+    if index_keyword >= len(keyword):
+      index_keyword = 0
     if character in alphabet:
-      keyword_phrase += keyword[keyword_index]
-      keyword_index += 1
+      phrase_keyword += keyword[index_keyword]
+      index_keyword += 1
     else:
-      keyword_phrase += character
+      phrase_keyword += character
 
-    encoded_message = ""
+  new_phrase = ''
 
   for i in range(len(message)):
     if message[i] in alphabet:
-      old_character_index = alphabet.find(message[i])
-      offset_index = alphabet.find(keyword_phrase[i])
-      new_character = alphabet[(old_character_index - offset_index) % 26]
-      encoded_message += new_character
+      message_index = alphabet.find(message[i])
+      phrase_index = alphabet.find(phrase_keyword[i])
+      new_index = alphabet[(message_index - phrase_index) % 26]
+      new_phrase += new_index
     else:
-      encoded_message += message[i]
-
-  return encoded_message
+      new_phrase += message[i]
+  
+  return new_phrase
 
 print(vigenere_encode(message, keyword))
-
 print(vigenere_decode(vigenere_encode(message, keyword), keyword))
