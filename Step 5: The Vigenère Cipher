@@ -1,0 +1,31 @@
+alphabet = 'abcdefghijklmnopqrstuvwxyz'
+message = "txm srom vkda gl lzlgzr qpdb? fepb ejac! ubr imn tapludwy mhfbz cza ruxzal wg zztcgcexxch!"
+keyword = 'friends'
+
+def vigenere_decode(message, keyword):
+  
+  phrase_keyword = ''
+  index_keyword = 0
+
+  for character in message:
+    if index_keyword >= len(keyword):
+      index_keyword = 0
+    if character in alphabet:
+      phrase_keyword += keyword[index_keyword]
+      index_keyword += 1
+    else:
+      phrase_keyword += character
+
+  real_phrase = ''
+
+  for i in range(len(message)):
+    if message[i] in alphabet:
+      message_index = alphabet.find(message[i])
+      phrase_index = alphabet.find(phrase_keyword[i])
+      new_index = alphabet[(message_index + phrase_index) % 26]
+      real_phrase += new_index
+    else:
+      real_phrase += message[i]
+  return real_phrase
+
+print(vigenere_decode(message, keyword))
