@@ -69,22 +69,23 @@ new_installment = Franchise('12 East Mulberry Street', all_menus)
 #print(new_installment.available_menus(17))
 
 
-# Creating Businesses
+# Creating the Businesses:
 class Business:
   def __init__(self, name, franchises):
     self.name = name
     self.franchises = franchises
-  
-franchise = [flagship_store, new_installment]
-  
-first_business = Business("Basta Fazoolin' with my Heart", franchise)
+
+all_franchises = [flagship_store, new_installment]
+
+first_business = Business('Basta Fazoolin\' with my Heart', all_franchises)
 
 arepas_menu = {'arepa pabellon': 7.00, 'pernil arepa': 8.50, 'guayanes arepa': 8.00, 'jamon arepa': 7.50}
 
-arepas = Menu('Take a\' Arepa', arepas_menu, 10, 20)
+arepa = Menu('Arepa', arepas_menu, 10, 20)
 
-arepas_place = Franchise("89 Fitzgerald Avenue", [arepas])
+arepas_place = Franchise('189 Fitzgerald Avenue', [arepa])
 
-arepas_business = Business("Take a' Arepa", [arepas_place])
+new_business = Business('Take a\' Arepa', [arepas_place])
 
-#print(arepas_business.franchises[0].menus[0])
+#print(new_business.franchises[0])
+#print(arepas_place.menus[0])
