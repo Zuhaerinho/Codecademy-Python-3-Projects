@@ -1,13 +1,13 @@
 alphabet = 'abcdefghijklmnopqrstuvwxyz'
+my_message = 'thanks! i hope you are doing well.'
 
-real_message = 'Hey Vishal, hope you are doing well!'
-message = ''
-
-for character in real_message:
+def encode(my_message, offset):
+  encoded_message = ''
+  for character in my_message:
     if character in alphabet:
-      value = alphabet.find(character)
-      message += alphabet[(value - 10) % 26]
+      encoded_message += alphabet[(alphabet.index(character) - offset) % 26]
     else:
-      message += character
+      encoded_message += character
+  return encoded_message
 
-print(message)
+print(encode(my_message, 10))
