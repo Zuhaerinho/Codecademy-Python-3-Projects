@@ -1,31 +1,29 @@
 alphabet = 'abcdefghijklmnopqrstuvwxyz'
-message = "txm srom vkda gl lzlgzr qpdb? fepb ejac! ubr imn tapludwy mhfbz cza ruxzal wg zztcgcexxch!"
 keyword = 'friends'
+message = 'txm srom vkda gl lzlgzr qpdb? fepb ejac! ubr imn tapludwy mhfbz cza ruxzal wg zztcgcexxch!'
 
-def vigenere_decode(message, keyword):
-  
-  phrase_keyword = ''
-  index_keyword = 0
+
+def decode(message, keyword):
+  keyword_phrase = ''
+  keyword_index = 0
 
   for character in message:
-    if index_keyword >= len(keyword):
-      index_keyword = 0
     if character in alphabet:
-      phrase_keyword += keyword[index_keyword]
-      index_keyword += 1
+      keyword_phrase += keyword[keyword_index % len(keyword)]
+      keyword_index += 1
     else:
-      phrase_keyword += character
+      keyword_phrase += character
 
-  real_phrase = ''
+  decoded_message = ''
 
   for i in range(len(message)):
     if message[i] in alphabet:
       message_index = alphabet.find(message[i])
-      phrase_index = alphabet.find(phrase_keyword[i])
+      phrase_index = alphabet.find(keyword_phrase[i])
       new_index = alphabet[(message_index + phrase_index) % 26]
-      real_phrase += new_index
+      decoded_message += new_index
     else:
-      real_phrase += message[i]
-  return real_phrase
+      decoded_message += message[i]
+  return decoded_message
 
-print(vigenere_decode(message, keyword))
+print(decode(message, keyword))
