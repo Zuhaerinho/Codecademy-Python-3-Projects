@@ -1,19 +1,16 @@
 alphabet = 'abcdefghijklmnopqrstuvwxyz'
 message = "vhfinmxkl atox kxgwxkxw tee hy maxlx hew vbiaxkl hulhexmx. px'ee atox mh kxteer lmxi ni hnk ztfx by px ptgm mh dxxi hnk fxlltzxl ltyx."
 
-
-def caesar_decode(message, offset):
-  real_message = ''
+def decode(message, offset):
+  decoded_message = ''
   for character in message:
     if character in alphabet:
-      value = alphabet.find(character)
-      real_message += alphabet[(value + offset) % 26]
+      decoded_message += alphabet[(alphabet.index(character) + offset) % 26]
     else:
-      real_message += character
-  return real_message
+      decoded_message += character
+  return decoded_message
 
-
-for offset in range(1, 26):
+for offset in range(26):
   print('')
-  print('Offset: {}'.format(offset))
-  print(caesar_decode(message, offset))
+  print('offset ' + str(offset) + ':')
+  print(decode(message, offset))
